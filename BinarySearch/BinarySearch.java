@@ -43,38 +43,6 @@ public class BinarySearch {
   }
 }
 
-
-    /*
-    int[] array = {1,4,6,8,12,16,18,19,20};
-
-    int x = 4;
-
-    double low = 0;
-    double high = array.length - 1;
-    int middleIndex = Math.ceil((low+high)/2);
-    double middleValue = array[middleIndex];
-
-
-    boolean status = true;
-
-    while (status) {
-      if (x == middleValue) {
-        System.out.println(middleIndex);
-        status = false;
-        break;
-      } else if (x != middleValue) {
-        middleIndex = Math.ceil((low + high)/2);
-        if (x > middleValue) {
-          low = middleIndex + 1;
-        }
-        else if (x < middleValue) {
-          high = middleIndex - 1;
-        }
-      }
-    }
-  }
-}
-
 /*
-
+Source: https://www.programiz.com/dsa/binary-search
 */

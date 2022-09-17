@@ -46,6 +46,8 @@ for (int i = 0; i < array.length-1; i++) {
 
 Natural Language:
 
+int[] array = {20, 12, 10, 15, 2};
+
 1. Set index = 0.
 2. Designate minimum = array[index] aka 20
 3. Designate the minimumIndex = index aka 0

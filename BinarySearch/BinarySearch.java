@@ -1,13 +1,5 @@
 public class BinarySearch {
   public static void main(String[] argv) {
-    /*
-    int x = 2;
-    int y = 4;
-    int answer = x + y; //if x value changes, answer value will remain the same. 
-    System.out.println(x + "+" + y + "=" + answer);
-    x = 5;
-    System.out.println(x + "+" + y + "=" + answer);
-    */
     
     double[] array = {1,4,6,8,12,16,18,19,20,21,25};
 
@@ -42,6 +34,16 @@ public class BinarySearch {
     
   }
 }
+
+/*
+    int x = 2;
+    int y = 4;
+    int answer = x + y; //if x value changes, answer value will remain the same. 
+    System.out.println(x + "+" + y + "=" + answer);
+    x = 5;
+    System.out.println(x + "+" + y + "=" + answer);
+*/
+
 
 /*
 Source: https://www.programiz.com/dsa/binary-search

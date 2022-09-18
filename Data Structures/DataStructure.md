@@ -1,0 +1,1 @@
+Data Structure - a way to store and organize data.

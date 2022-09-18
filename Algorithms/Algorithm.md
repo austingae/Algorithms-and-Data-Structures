@@ -1,0 +1,1 @@
+Algorithm - a way to solve a problem computationally, expressed in natural languages, pseudocodes, and programming languages.

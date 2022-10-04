@@ -1,75 +1,161 @@
 public class BinarySearch {
-  public static void main(String[] argv) {
-    
-    double[] array = {1,4,6,8,12,16,18,19,20,21,25};
-
-    double x = 25;
-
-    double low = 0;
-    double high = array.length - 1;
-    double middleIndex = Math.ceil((low+high)/2);
-    double middleValue = array[(int)middleIndex];
-
-
-    boolean status = true;
-    while (status) {
-      //If x == middleValue, then print out the middleIndex.
-      if (x == middleValue) {
-        System.out.println(middleIndex);
-        status = false;
-        break;
-      } 
-      //If x != middleValue, then continue...
-      else if (x != middleValue) {
-        if (x > middleValue) {
-          low = middleIndex + 1;
-        }
-        else if (x < middleValue) {
-          high = middleIndex - 1;
-        }
-        middleIndex = Math.ceil((low+high)/2);
-        middleValue = array[(int)middleIndex];
-      }
-    }
-    
-  }
-}
-
-/*
-    int x = 2;
-    int y = 4;
-    int answer = x + y; //if x value changes, answer value will remain the same. 
-    System.out.println(x + "+" + y + "=" + answer);
-    x = 5;
-    System.out.println(x + "+" + y + "=" + answer);
-*/
-
-
-/*
-Source: https://www.programiz.com/dsa/binary-search
-*/
-
-/*
-class Solution {
-    public int search(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length-1; 
+    static int binarySearch(int[] arr, int target) {
+        int lowIndex = 0;
+        int highIndex = arr.length - 1;
+        int middleIndex = (lowIndex + highIndex)/2;
         
+        while (lowIndex != highIndex) {
+            if (arr[middleIndex] == target) {
+                return middleIndex;
+            } 
+            else if (arr[middleIndex] < target) {
+                lowIndex = lowIndex + 1;
+            }
+            else if (arr[middleIndex] > target) {
+                highIndex = highIndex - 1;
+            }
+            
+            middleIndex = (lowIndex + highIndex)/2;
+        }
         
-        while(low <= high) {
-            if (nums[(low+high)/2] == target) {
-                return (low+high)/2;
-            }
-            else if (nums[(low+high)/2] < target) {
-                low = (low+high)/2 + 1; 
-            }
-            else if (nums[(low+high)/2] > target) {
-                high = (low+high)/2 - 1;
-            }
+        if (lowIndex == highIndex && arr[middleIndex] == target) {
+            return middleIndex;
         }
         
         return -1;
     }
-    
+
+    public static void main(String[] argv) {
+      int[] arr = {2,4,5,8,10,11,15,17};
+      int target = 15;
+      System.out.println(binarySearch(arr, target));
+    }
 }
+
+
+/*
+arr = {1,4,6,7,9}
+target = 1;
+1. Create three variables: lowIndex, highIndex, and middleIndex. 
+Set lowIndex = 0; highIndex = arr.length - 1; middleIndex = (lowIndex + highIndex)/2
+
+lowIndex = 0 //0
+highIndex = arr.length - 1 //4
+middleIndex = (lowIndex + highIndex)/2 //2
+
+       lowIndex           middleIndex       highIndex
+arr = {1,       4,        6,       7,       9}
+
+2. Check if arr[middleIndex] ==, <, or > than target.
+If arr[middleIndex] == target, return the middleIndex.
+If arr[middleIndex] < target, then set lowIndex = middleIndex + 1
+If arr[middleIndex] > target, then set highIndex = middleIndex - 1
+
+3. Then set middleIndex = (lowIndex + highIndex)/2
+
+lowIndex = 0
+highIndex = 1
+middleIndex = (lowIndex + highIndex)/2 //1
+
+       lowIndex      middleIndex       
+                     highIndex
+arr = {1,            4,             6,            7,            9}
+
+4. Repeat Step 2 and 3.
+
+lowIndex = 0
+highIndex = 0
+middleIndex = (lowIndex + highIndex)/2 //0
+
+       lowIndex
+       middleIndex
+       highIndex
+arr = {1,            4,             6,            7,            9}
+
+5. Repeat Step 2 and 3.
+Since arr[middleIndex == target], return the middleIndex. 
+*/
+
+
+//Source: https://www.programiz.com/dsa/binary-search
+
+
+/*
+LeetCode Binary Search Exercise:
+class Solution {
+    public int search(int[] arr, int target) {
+        int lowIndex = 0;
+        int highIndex = arr.length - 1;
+        int middleIndex = (lowIndex + highIndex)/2;
+        
+        while (lowIndex != highIndex) {
+            if (arr[middleIndex] == target) {
+                return middleIndex;
+            } 
+            else if (arr[middleIndex] < target) {
+                lowIndex = lowIndex + 1;
+            }
+            else if (arr[middleIndex] > target) {
+                highIndex = highIndex - 1;
+            }
+            
+            middleIndex = (lowIndex + highIndex)/2;
+        }
+        
+        if (lowIndex == highIndex && arr[middleIndex] == target) {
+            return middleIndex;
+        }
+        
+        return -1;
+    }
+
+}
+
+arr = {1,4,6,7,9}
+target = 1;
+1. Create three variables: lowIndex, highIndex, and middleIndex. 
+Set lowIndex = 0; highIndex = arr.length - 1; middleIndex = (lowIndex + highIndex)/2
+
+lowIndex = 0 //0
+highIndex = arr.length - 1 //4
+middleIndex = (lowIndex + highIndex)/2 //2
+
+       lowIndex           middleIndex       highIndex
+arr = {1,       4,        6,       7,       9}
+
+2. Check if arr[middleIndex] ==, <, or > than target.
+If arr[middleIndex] == target, return the middleIndex.
+If arr[middleIndex] < target, then set lowIndex = middleIndex + 1
+If arr[middleIndex] > target, then set highIndex = middleIndex - 1
+
+3. Then set middleIndex = (lowIndex + highIndex)/2
+
+lowIndex = 0
+highIndex = 1
+middleIndex = (lowIndex + highIndex)/2 //1
+
+       lowIndex      middleIndex       
+                     highIndex
+arr = {1,            4,             6,            7,            9}
+
+4. Repeat Step 2 and 3.
+
+lowIndex = 0
+highIndex = 0
+middleIndex = (lowIndex + highIndex)/2 //0
+
+       lowIndex
+       middleIndex
+       highIndex
+arr = {1,            4,             6,            7,            9}
+
+5. Repeat Step 2 and 3.
+Since arr[middleIndex == target], return the middleIndex. 
+
+
+       lowIndex
+       middleIndex
+       highIndex
+arr = {0,            4,             6,            7,            9}
+
 */

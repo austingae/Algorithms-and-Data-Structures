@@ -1,0 +1,1 @@
+In technical interviews, explaining the thought process of how to solve the problem is way, way more important than getting the correct answer.
